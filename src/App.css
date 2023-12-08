@@ -28,6 +28,54 @@
   color: #61dafb;
 }
 
+
+.menu-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 120px; 
+}
+
+
+body {
+  background-color: #ffffff; 
+}
+
+.add-to-order-button {
+  margin-bottom: 40px; 
+}
+
+
+/* Define styles for the clickable text */
+.ThemeSwitch {
+  position: absolute;
+  top: 20px;
+  left: 10px; 
+  cursor: pointer; 
+  border: 1px solid transparent; 
+}
+
+.ThemeSwitch .switch-text {
+  margin: 20px 0 0; 
+  padding: 0; 
+}
+
+
+/* Styles for the light theme */
+.light-theme {
+  color: #000000;
+  background-color: #ffffff; 
+}
+
+/* Styles for the dark theme */
+body.dark-theme {
+
+  background-color: #000000; 
+
+    color: #ffffff; 
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

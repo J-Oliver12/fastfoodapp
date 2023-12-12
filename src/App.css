@@ -2,32 +2,24 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Shared container styles */
+.container {
+  text-align: center;
+  /* Other shared container styles */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Styles for the light theme */
+.light-theme {
+  color: #000000;
+  background-color: #ffffff; 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Styles for the dark theme */
+body.dark-theme {
+  color: #ffffff; 
+  background-color: #000000; 
+    
 }
-
-.App-link {
-  color: #61dafb;
-}
-
 
 .menu-items {
   display: flex;
@@ -36,15 +28,30 @@
   gap: 120px; 
 }
 
+.menu-card {
+  border: 1px solid #000000; /* Black border */
+  padding: 10px;
+  background-color: #ffffff; /* White background */
+  color: #000000; /* Black text */
+  margin-bottom: 10px; /* Adjust margin as needed */
+  padding-bottom: 30px;
+  border-radius: 30px; 
+}
+
+.menu-item-details button {
+  /* Adjust the margin to move the button upwards */
+  margin-top: -10px; /* Experiment with different values */
+}
+
+/* Add hover effect for better user interaction */
+.menu-card:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Shadow on hover */
+}
+
 
 body {
   background-color: #ffffff; 
 }
-
-.add-to-order-button {
-  margin-bottom: 40px; 
-}
-
 
 /* Define styles for the clickable text */
 .ThemeSwitch {
@@ -60,21 +67,9 @@ body {
   padding: 0; 
 }
 
-
-/* Styles for the light theme */
-.light-theme {
-  color: #000000;
-  background-color: #ffffff; 
+.add-to-order-button {
+  margin-bottom: 120px; /* Increase this value to move the button further up */
 }
-
-/* Styles for the dark theme */
-body.dark-theme {
-
-  background-color: #000000; 
-
-    color: #ffffff; 
-}
-
 
 @keyframes App-logo-spin {
   from {

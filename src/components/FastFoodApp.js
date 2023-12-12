@@ -63,20 +63,77 @@ const FastFoodApp = () => {
 
   return (
     <div className={`container ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
-      <h1>Fast-Food Ordering App</h1>
-      <MenuDisplay menuItems={menuItems} addToOrder={addToOrder} />
-      <div className="order-section">
-        <div className="order-controls">
-          <OrderList orderList={orderList} adjustQuantity={adjustQuantity} />
-          <ThemeSwitch isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
-          <button onClick={resetOrder} style={{ marginBottom: '50px' }}>Reset Order</button>
+  <h1>Fast-Food Ordering App</h1>
+  <MenuDisplay menuItems={menuItems} addToOrder={addToOrder} />
+  <div style={{ margin: '90px 0' }}></div>
+  <div className="order-box" style={{
+    border: '1px solid black',
+    padding: '20px',
+    width: '85%',
+    margin: '0 auto',
+    borderRadius: '15px',
+    marginBottom: '50px',
+    backgroundColor: isDarkTheme ? '#333' : '#fff',
+    color: isDarkTheme ? '#fff' : '#000',
+  }}>
+    
+    {/* Content of the order box */}
+    {orderList.map((item) => (
+      <div key={item.id} style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: '10px',
+      }}>
+        <span style={{ textAlign: 'left', width: '150px' }}>
+          {item.name} x{item.quantity}
+        </span>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          width: '150px', // Adjust width as needed
+        }}>
+          <button
+            onClick={() => adjustQuantity(item.id, item.quantity - 1)}
+            style={{
+              backgroundColor: 'red',
+              color: '#fff',
+              width: '50%',
+              height: '40px',
+              border: 'none',
+              borderRadius: '8px',
+              fontSize: '20px',
+            }}
+          >
+            -
+          </button>
+          <button
+            onClick={() => adjustQuantity(item.id, item.quantity + 1)}
+            style={{
+              backgroundColor: 'green',
+              color: '#fff',
+              width: '50%',
+              height: '40px',
+              border: 'none',
+              borderRadius: '8px',
+              fontSize: '20px',
+            }}
+          >
+            +
+          </button>
         </div>
-        <div style={{ marginBottom: '70px' }}> 
-        <h2 style={{ marginBottom: '5px', marginTop: '0' }}>Total Amount</h2> 
-        <p style={{ fontSize: '30px', marginTop: '0', marginBottom: '0' }}>${calculateTotal()}</p> 
+        <span style={{ textAlign: 'right' }}>${(item.price * item.quantity).toFixed(2)}</span>
       </div>
-      </div>
+    ))}
+    <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
+      <span style={{ fontWeight: 'bold', textAlign: 'left', width: '150px' }}>Total:</span>
+      <span style={{ textAlign: 'right' }}>${calculateTotal()}</span>
     </div>
+    <button onClick={resetOrder} style={{ marginTop: '20px', display: 'block' }}>Reset Order</button>
+  </div>
+  <ThemeSwitch isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
+</div>
   );
 };
 
